@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Home() {
   return (
@@ -17,7 +18,9 @@ function Home() {
           <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
             <div className="col mb-5">
               <div className="card h-100">
-                <img className="card-img-top" src="https://www.bhphotovideo.com/images/images1000x1000/canon_3380c052_eos_rp_mirrorless_digital_1459303.jpg" alt="..." />
+                <Link to={'/singleview/1'}>
+                  <img className="card-img-top" src="https://www.bhphotovideo.com/images/images1000x1000/canon_3380c052_eos_rp_mirrorless_digital_1459303.jpg" alt="..." />
+                </Link>
                 <div className="card-body p-4">
                   <div className="text-center">
                     <h5 className="fw-bolder">Canon EOS RP </h5>

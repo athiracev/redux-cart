@@ -18,7 +18,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/*' element={<Home/>}/>
-      <Route path='/singleview' element={<SingleView/>}/>
+      <Route path='/singleview/:id' element={<SingleView/>}/>
       <Route path='/cart' element={<Cart/>}/>
       <Route path='/wishlist' element={<Wishlist/>}/>
     </Routes>
