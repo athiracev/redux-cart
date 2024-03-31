@@ -51,18 +51,18 @@ function Home() {
                 <div key={item.id} className="col mb-5">
                   <div className="card h-100">
                     <Link to={`/singleview/${item.id}`}>
-                      <Carousel>
-                        {item.images.map((image, index) => (
-                          <Carousel.Item key={index}>
+                      {/* <Carousel> */}
+                        {/* {item.images.map((image, index) => (
+                          <Carousel.Item key={index}> */}
                             <img
                               className="d-block w-100"
-                              src={image}
-                              alt={`Product Slide ${index + 1}`}
+                              src={item?.thumbnail}
+                              // alt={`Product Slide ${index + 1}`}
                               style={{ height: '200px' }}
                             />
-                          </Carousel.Item>
-                        ))}
-                      </Carousel>
+                          {/* </Carousel.Item>
+                        ))} */}
+                      {/* </Carousel> */}
                     </Link>
                     <div className="card-body p-4">
                       <div className="text-center">

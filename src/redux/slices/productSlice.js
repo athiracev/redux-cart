@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const fetchProductThunk = createAsyncThunk('product/fectchProductThunk',async()=>{
     const response= await axios.get('https://dummyjson.com/products')
-    localStorage.setItem("res",JSON.stringify(response.data.products))
+    localStorage.setItem("response",JSON.stringify(response.data.products))
 
     // console.log(response.data.products)
     return response.data.products
