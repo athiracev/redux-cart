@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchProductThunk } from '../redux/slices/productSlice'
 import Carousel from 'react-bootstrap/Carousel';
 import { Spinner } from 'react-bootstrap';
+import { addWishList } from '../redux/slices/wishlistSlice';
 
 function Home() {
 
@@ -14,7 +15,7 @@ function Home() {
   useEffect(() => {
     dispatch(fetchProductThunk())
   }, [])
-  console.log(product)
+  // console.log(product)
 
   return (
 
@@ -66,10 +67,10 @@ function Home() {
                     </Link>
                     <div className="card-body p-4">
                       <div className="text-center">
-                        <h5 className="fw-bolder">{item.title}</h5>
+                        <h5 className="fw-bolder">{item.title.slice(0,10)}...</h5>
                         <p>Price: ${item.price}</p>
                         <div className="d-flex justify-content-between">
-                          <button className="btn border">
+                          <button className="btn border" onClick={()=>{dispatch(addWishList(item))}}>
                             <i
                               className="fa-solid fa-heart-circle-plus fa-lg"
                               style={{ color: '#1a63e0' }}

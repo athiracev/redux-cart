@@ -4,15 +4,19 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import Badge from 'react-bootstrap/Badge';
+import {  useSelector } from 'react-redux';
 
 function Header() {
+
+  const  {wishlist} =useSelector((state)=>state.wishlistReducer)
+  console.log(wishlist)
   return (
     <div>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
           <Navbar.Brand ><Link to={'/'} className='text-decoration-none text-dark'>
             <i className="fa-solid fa-cart-shopping" style={{ color: '#000000' }}></i>
-            ReduxCart
+            ReduxCart     
           </Link></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -21,7 +25,7 @@ function Header() {
                 <Link to={'/wishlist'}  style={{textDecoration:'none'}}>
                   <i className="fa-solid fa-heart me-2" style={{ color: '#df2020' }}></i>
                   Wishlist
-                  <Badge className='ms-2' bg="primary">0</Badge>
+                  <Badge className='ms-2' bg="primary">{wishlist?.length}</Badge>
                 </Link>
 
               </Nav.Link>
