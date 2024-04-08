@@ -18,9 +18,9 @@ function Footer() {
         </div>
         <div className="w-25">
           <h3>References</h3>
-          <a href="https://react.dev/" className='d-block mt-3 mb-2' style={{textDecoration:'none'}}>React</a>
-          <a href="https://react-redux.js.org/" className='d-block mt-3 mb-2' style={{textDecoration:'none'}}>Redux</a>
-          <a href="https://react-bootstrap.github.io/" style={{textDecoration:'none'}}>React Bootstrap</a>
+          <a href="https://react.dev/"   target="_blank" className='d-block mt-3 mb-2' style={{textDecoration:'none'}}>React</a>
+          <a href="https://react-redux.js.org/" target='_blank'  className='d-block mt-3 mb-2' style={{textDecoration:'none'}}>Redux</a>
+          <a href="https://react-bootstrap.github.io/" target='_blank' style={{textDecoration:'none'}}>React Bootstrap</a>
         </div>
         <div className="w-25">
           <h3> Contact Us</h3>

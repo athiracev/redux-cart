@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Row, Col } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
-
-
+import { addWishList } from '../redux/slices/wishlistSlice';
+import { addCart } from '../redux/slices/cartSlice';
+import {useDispatch} from 'react-redux'
 
 
 
@@ -10,6 +11,7 @@ function SingleView() {
 
   const [data,setData]=useState([])
   const {id}=useParams()
+  const dispatch= useDispatch()
 
   useEffect(()=>{
 // console.log(id) get the id 
@@ -35,10 +37,10 @@ setData(JSON.parse(localStorage.getItem('response')).find(item=>item.id==id))
             <p style={{ textAlign: 'justify' }}>{data.description}</p>
             <div className="d-flex justify-content-between" >
               <button className='btn btn-lg border'>
-                <i className="fa-solid fa-heart-circle-plus fa-lg" style={{ color: '#1a63e0' }}></i>
+                <i className="fa-solid fa-heart-circle-plus fa-lg" style={{ color: '#1a63e0' }} onClick={()=>{dispatch(addWishList(data))}}></i>
               </button >
               <button className='btn btn-lg border' >
-                <i className="fa-solid fa-cart-plus fa-lg" style={{ color: '#12e1fd' }} ></i>
+                <i className="fa-solid fa-cart-plus fa-lg" style={{ color: '#12e1fd' }} onClick={()=>{dispatch(addCart(data))}} ></i>
               </button>
             </div>
           </Col>

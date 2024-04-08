@@ -14,8 +14,22 @@ const productSlice = createSlice({
     initialState:{
         product:[],
         loading:false,
-        error:''
+        error:'',
+        productContainer:[],
+        productsPerPage:10,
+        currentPage:1
 
+    },
+    reducers:{
+        searchProduct:(state,action)=>{
+            state.product=state.productContainer.filter(item=>item.title.toLowerCase().includes(action.payload))
+        },
+        onNavigatePrev:(state)=>{
+            state.currentPage--
+        },
+        onNavigateNext:(state)=>{
+            state.currentPage++
+        }
     },
     //extraReducers allows createSlice to respond and update its own state 
     // in response to other action types besides the types it has generated.
@@ -27,6 +41,7 @@ const productSlice = createSlice({
         builder.addCase(fetchProductThunk.fulfilled,(state,action)=>{
             state.loading=false
             state.product=action.payload
+            state.productContainer=action.payload
         }),
         builder.addCase(fetchProductThunk.rejected,(state,action)=>{
             state.loading=false
@@ -38,5 +53,5 @@ const productSlice = createSlice({
    
 })
 
-
+export const {onNavigateNext,onNavigatePrev,searchProduct}=productSlice.actions
 export default productSlice.reducer
